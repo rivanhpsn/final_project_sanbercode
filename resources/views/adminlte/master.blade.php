@@ -6,7 +6,7 @@
   <title>AdminLTE 3 | Blank Page</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  @stack('cssDT')
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('/adminlte/plugins/fontawesome-free/css/all.min.css')}} ">
   <!-- Ionicons -->
@@ -60,7 +60,7 @@
   var items = ["halo", "ini", "items", "di", "master"];
 </script>
 
-@stack('scripts')
+@stack('jsDT')
 
 </body>
 </html>

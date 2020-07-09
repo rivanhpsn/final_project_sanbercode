@@ -80,7 +80,8 @@ class PertanyaanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pertanyaan = Pertanyaan::find($id);
+        return view('pertanyaan.edit', compact('pertanyaan'));
     }
 
     /**
@@ -92,7 +93,13 @@ class PertanyaanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Pertanyaan::where('id',$id)
+            ->update([
+                'judul' => $request->judul,
+                'isi' => $request->isi,
+            ]);
+
+        return redirect('/pertanyaan');
     }
 
     /**
@@ -103,6 +110,8 @@ class PertanyaanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deleted = Pertanyaan::destroy($id);
+
+        return redirect('/pertanyaan');
     }
 }
