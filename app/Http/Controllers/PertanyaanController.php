@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pertanyaan;
+use App\Tag;
 
 class PertanyaanController extends Controller
 {
@@ -15,7 +16,7 @@ class PertanyaanController extends Controller
     public function index()
     {
         $pertanyaan = Pertanyaan::all();
-        // dd($items);
+        // dd($pertanyaan);
         return view('pertanyaan.index', compact('pertanyaan'));
     }
 
@@ -26,7 +27,7 @@ class PertanyaanController extends Controller
      */
     public function create()
     {
-        //
+        return view('pertanyaan.form');
     }
 
     /**
@@ -37,7 +38,25 @@ class PertanyaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $new_pert = Pertanyaan::create([
+            "judul" => $request["judul"],
+            "isi" => $request["isi"],
+        ]);
+
+        $tagArr = explode(',', $request->tags);
+        $tagsMulti  = [];
+        foreach($tagArr as $strTag){
+            $tagArrAssc["nama"] = $strTag;
+            $tagsMulti[] = $tagArrAssc;
+        }
+        // dd($tagsMulti);
+        // Create Tags baru
+        foreach($tagsMulti as $tagCheck){
+            $tag = Tag::firstOrCreate($tagCheck);
+            $new_pert->tags()->attach($tag->id);
+        }
+        
+        return redirect('/pertanyaan');
     }
 
     /**
@@ -48,7 +67,9 @@ class PertanyaanController extends Controller
      */
     public function show($id)
     {
-        //
+        $pertanyaan = Pertanyaan::find($id);
+        // dd($pertanyaan->tags);
+        return view('pertanyaan.show', compact('pertanyaan'));
     }
 
     /**
