@@ -15,9 +15,13 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
 });
-Route::resource('pertanyaan', 'PertanyaanController'); 
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::resource('pertanyaan', 'PertanyaanController'); 
+    Route::resource('jawaban', 'JawabanController');
+    });
 // Route::resource('/pertanyaan/create', 'PertanyaanController');
 // Route::post('/pertanyaan', 'PertanyaanController@store');
 // Route::get('/pertanyaan/{id}', 'PertanyaanController@show');
