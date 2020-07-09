@@ -1,7 +1,7 @@
 @extends('adminlte.master')
 
 @section('content')
-<div class="content-wrapper">
+{{-- <div class="content-wrapper"> --}}
     <div class="card">    
         <div class="card-body">
             <table id="datatable" class="table table-bordered table-striped">
@@ -20,7 +20,7 @@
                         <td> {{ $pertanyaan -> judul}}</td>
                         <td> {{ $pertanyaan -> isi}}</td>
                         <td>
-                            <a class="btn btn-primary"  href="/jawaban/{{$pertanyaan->id}}" role="button" >Jawab</a>
+                            {{-- <a class="btn btn-primary"  href="/jawaban/{{$pertanyaan->id}}" role="button" >Jawab</a> --}}
                             <a class="btn btn-primary"  href="/pertanyaan/{{$pertanyaan->id}}" role="button" >Detail</a>
                             <a class="btn btn-primary"  href="/pertanyaan/{{$pertanyaan->id}}/edit" role="button" >Edit</a>
                             <form action="/pertanyaan/{{$pertanyaan->id}}" method="POST" style="display: inline">
@@ -40,7 +40,7 @@
                 </div>
         </div>
     </div>
-</div>
+{{-- </div> --}}
 @endsection
 
 @push('jsDT')
