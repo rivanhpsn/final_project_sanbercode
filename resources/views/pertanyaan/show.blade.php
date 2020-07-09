@@ -9,7 +9,7 @@
       <p>Tanggal dibuat : {{$pertanyaan->created_at}}</p>
       <p>Tanggal diperbaharui : {{$pertanyaan->updated_at}}</p>
       @foreach($pertanyaan->tags as $tag) 
-        <button class="btn btn-default btn-sm"> {{$tag->nama}} </button>
+        <button class="btn btn-success btn-sm"> {{$tag->nama}} </button>
       @endforeach
     </div>
 </div>
