@@ -17,6 +17,12 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('/pertanyaan', 'PertanyaanController'); 
+Route::resource('/pertanyaan/create', 'PertanyaanController');
+Route::post('/pertanyaan', 'PertanyaanController@store');
+Route::get('/pertanyaan/{id}', 'PertanyaanController@show');
+Route::get('/pertanyaan/{id}/edit', 'PertanyaanController@edit'); 
+Route::put('/pertanyaan/{id}', 'PertanyaanController@update'); 
 
 Auth::routes();
 
