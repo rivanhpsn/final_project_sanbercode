@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pertanyaan;
 use App\Tag;
+use App\User;
 
 class PertanyaanController extends Controller
 {
@@ -26,7 +27,7 @@ class PertanyaanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    { 
         return view('pertanyaan.form');
     }
 
@@ -38,9 +39,11 @@ class PertanyaanController extends Controller
      */
     public function store(Request $request)
     {
+        
         $new_pert = Pertanyaan::create([
             "judul" => $request["judul"],
             "isi" => $request["isi"],
+            "user_id" => $request["user_id"]
         ]);
 
         $tagArr = explode(',', $request->tags);
@@ -67,6 +70,7 @@ class PertanyaanController extends Controller
      */
     public function show($id)
     {
+        
         $pertanyaan = Pertanyaan::find($id);
         // dd($pertanyaan->tags);
         return view('pertanyaan.show', compact('pertanyaan'));

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pertanyaan;
+use App\Jawaban;
 
 class JawabanController extends Controller
 {
@@ -23,7 +25,8 @@ class JawabanController extends Controller
      */
     public function create()
     {
-        //
+        $pertanyaan = Pertanyaan::all();
+        return view('/jawaban/create', compact('tanya'));
     }
 
     /**
@@ -34,7 +37,8 @@ class JawabanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Jawaban::create($request->all());
+        return redirect('/pertanyaan');
     }
 
     /**
@@ -56,7 +60,8 @@ class JawabanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pertanyaan = Pertanyaan::find($id);
+        return view('jawaban/create', compact('pertanyaan'));
     }
 
     /**
@@ -68,7 +73,7 @@ class JawabanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return "update";
     }
 
     /**
