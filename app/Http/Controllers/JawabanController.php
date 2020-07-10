@@ -15,7 +15,8 @@ class JawabanController extends Controller
      */
     public function index()
     {
-        //
+        $jawaban = Jawaban::all();
+        return view('jawaban.index', compact('jawaban'));
     }
 
     /**

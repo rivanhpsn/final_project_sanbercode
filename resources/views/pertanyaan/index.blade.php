@@ -37,7 +37,8 @@
             </table>
             <div class= "ml-3 mt-3" align="right">
                 <a class="btn btn-primary"  href="/pertanyaan/create" role="button" >+ Tambah Pertanyaan</a>
-                </div>
+                <a class="btn btn-info"  href="/jawaban" role="button" >Semua Jawaban</a>
+            </div>
         </div>
     </div>
 {{-- </div> --}}
