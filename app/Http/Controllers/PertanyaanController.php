@@ -1,11 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Pertanyaan;
 use App\Tag;
-use App\User;
+use App\User; 
 
 class PertanyaanController extends Controller
 {
@@ -20,7 +18,6 @@ class PertanyaanController extends Controller
         // dd($pertanyaan);
         return view('pertanyaan.index', compact('pertanyaan'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -31,15 +28,15 @@ class PertanyaanController extends Controller
         return view('pertanyaan.form');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    // /**
+    //  * Store a newly created resource in storage.
+    //  *
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @return \Illuminate\Http\Response
+    //  */
     public function store(Request $request)
     {
-        
+
         $new_pert = Pertanyaan::create([
             "judul" => $request["judul"],
             "isi" => $request["isi"],
@@ -61,7 +58,6 @@ class PertanyaanController extends Controller
         
         return redirect('/pertanyaan');
     }
-
     /**
      * Display the specified resource.
      *
@@ -70,12 +66,11 @@ class PertanyaanController extends Controller
      */
     public function show($id)
     {
-        
+
         $pertanyaan = Pertanyaan::find($id);
         // dd($pertanyaan->tags);
         return view('pertanyaan.show', compact('pertanyaan'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -87,7 +82,6 @@ class PertanyaanController extends Controller
         $pertanyaan = Pertanyaan::find($id);
         return view('pertanyaan.edit', compact('pertanyaan'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -102,10 +96,8 @@ class PertanyaanController extends Controller
                 'judul' => $request->judul,
                 'isi' => $request->isi,
             ]);
-
         return redirect('/pertanyaan');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -115,7 +107,7 @@ class PertanyaanController extends Controller
     public function destroy($id)
     {
         $deleted = Pertanyaan::destroy($id);
-
         return redirect('/pertanyaan');
     }
 }
+?>
