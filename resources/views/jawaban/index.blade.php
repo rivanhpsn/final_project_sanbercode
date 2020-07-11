@@ -18,7 +18,7 @@
                     <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$jawab->judul}}</td>
-                    <td>{{$jawab->isi}}</td>
+                    <td>{!!$jawab->isi!!}</td>
                     <td>{{$jawab->pertanyaan_id}}</td>
                     </tr>
                     @endforeach

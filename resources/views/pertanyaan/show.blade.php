@@ -6,7 +6,7 @@
       <h3>Detail Pertanyaan</h3>
       <input hidden name="idtanya" value="{{$pertanyaan->id}}" type="text">
       <p>Judul pertanyaan : {{$pertanyaan->judul}}</p>
-      <p>Isi pertanyaan : {{$pertanyaan->isi}}</p>
+      <p>Isi pertanyaan : {!!$pertanyaan->isi!!}</p>
       <p>Tanggal dibuat : {{$pertanyaan->created_at}}</p>
       <p>Tanggal diperbaharui : {{$pertanyaan->updated_at}}</p>
       @foreach($pertanyaan->tags as $tag) 
@@ -14,6 +14,6 @@
       @endforeach
     </div>
     <br>
-    <a href="/jawaban/{{$pertanyaan->id}}/edit" class="btn btn-primary">Jawaban</a>
+    <a href="/jawaban/{{$pertanyaan->id}}/edit" class="btn btn-primary">+ Jawaban</a>
 </div>
 @endsection

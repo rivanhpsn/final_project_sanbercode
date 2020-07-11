@@ -18,7 +18,7 @@
                         <tr id="{{$pertanyaan->id}}">
                         <td> {{ $key + 1}}</td>
                         <td> {{ $pertanyaan -> judul}}</td>
-                        <td> {{ $pertanyaan -> isi}}</td>
+                        <td> {!! $pertanyaan -> isi!!}</td>
                         <td>
                             {{-- <a class="btn btn-primary"  href="/jawaban/{{$pertanyaan->id}}" role="button" >Jawab</a> --}}
                             <a class="btn btn-primary"  href="/pertanyaan/{{$pertanyaan->id}}" role="button" >Detail</a>
