@@ -10,10 +10,9 @@
       <p>Tanggal dibuat : {{$pertanyaan->created_at}}</p>
       <p>Tanggal diperbaharui : {{$pertanyaan->updated_at}}</p>
       @foreach($pertanyaan->tags as $tag) 
-        <button class="btn btn-success btn-sm"> {{$tag->nama}} </button>
+        <button class="btn btn-success btn-sm mb-2"> {{$tag->nama}} </button>
       @endforeach
     </div>
-    <br>
-    <a href="/jawaban/{{$pertanyaan->id}}/edit" class="btn btn-primary">+ Jawaban</a>
 </div>
+<a href="/jawaban/{{$pertanyaan->id}}/edit" class="btn btn-primary ml-3">+ Jawaban</a>
 @endsection
