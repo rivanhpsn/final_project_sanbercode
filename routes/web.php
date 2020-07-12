@@ -21,7 +21,10 @@ Route::get('/', function () {
 Route::group(['middleware' => 'auth'], function(){
     Route::resource('pertanyaan', 'PertanyaanController'); 
     Route::resource('jawaban', 'JawabanController');
+    Route::get('/pertanyaan/komentar/create', 'KomentarTanyaController@create');
     });
+
+    
 // Route::resource('/pertanyaan/create', 'PertanyaanController');
 // Route::post('/pertanyaan', 'PertanyaanController@store');
 // Route::get('/pertanyaan/{id}', 'PertanyaanController@show');
