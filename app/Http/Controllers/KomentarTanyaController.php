@@ -7,6 +7,11 @@ use App\KomentarPertanyaan;
 
 class KomentarTanyaController extends Controller
 {
+    public function index()
+    {
+        $komen = KomentarPertanyaan::all();
+        return view("pertanyaan/komentar/index", compact('komen'));
+    }
     public function create()
     { 
         return view('pertanyaan.komentar.create');

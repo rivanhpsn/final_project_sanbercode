@@ -23,6 +23,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('jawaban', 'JawabanController');
     Route::get('/pertanyaan/komentar/create', 'KomentarTanyaController@create');
     Route::post('/pertanyaan/komentar', 'KomentarTanyaController@store');
+    Route::get('/pertanyaan/komentar/index', 'KomentarTanyaController@index');
+    
 });
 
     
